@@ -119,14 +119,14 @@ jobs:
       #     restore-keys: |
       #       v4-${{ runner.os }}-libcurl-deps-cache-node-${{ matrix.node }}
       - name: 'Set GIT_TAG'
-        if: startsWith(github.ref, 'refs/tags')
+        # if: startsWith(github.ref, 'refs/tags')
         run: echo "GIT_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: 'Publish Binary'
-        if: steps.run_result.outputs.run_result != 'success'
+        # if: steps.run_result.outputs.run_result != 'success'
         run: |
           GIT_COMMIT=${{ github.sha }} GIT_TAG=$GIT_TAG ./scripts/ci/build.sh
       - name: Upload artifacts
-        if: always() && steps.run_result.outputs.run_result != 'success'
+        # if: always() && steps.run_result.outputs.run_result != 'success'
         uses: actions/upload-artifact@v2
         with:
           name: build-logs-${{ matrix.os }}-${{ matrix.libcurl-release }}-${{ matrix.node }}
