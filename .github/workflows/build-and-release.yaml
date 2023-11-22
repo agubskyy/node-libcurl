@@ -70,8 +70,8 @@ jobs:
             ${{ github.run_id }}-${{ github.job }}-
       - id: run_result
         run: cat run_result 2>/dev/null || echo 'default'
-      # - name: Checkout
-      #   uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
@@ -95,7 +95,7 @@ jobs:
           ln -s /usr/local/bin/glibtoolize /usr/local/bin/libtoolize
       - if: runner.os == 'Linux'
         name: Install Needed packages on Linux
-        run: sudo apt-get install -y cmake
+        run: echo 'All is ok' #sudo apt-get install -y cmake
       - name: Output yarn cache dir
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
