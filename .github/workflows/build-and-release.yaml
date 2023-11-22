@@ -21,7 +21,7 @@ env:
 
 jobs:
   build-and-release-nodejs:
-    runs-on: ${{ matrix.os }}
+    runs-on: [self-hosted, ${{ matrix.os }}]
     strategy:
       fail-fast: false
       matrix:
