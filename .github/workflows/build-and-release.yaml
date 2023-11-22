@@ -29,7 +29,7 @@ jobs:
           # - macos-11
           - ubuntu-18.04 # TODO(jonathan): bump this to a more recent version when we do a major version bump
         libcurl-release:
-          - 8.4.0
+          - 7.88.1
         node:
           # - 10
           # - 12
