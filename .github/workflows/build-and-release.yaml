@@ -21,7 +21,7 @@ env:
 
 jobs:
   build-and-release-nodejs:
-    runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -71,9 +71,9 @@ jobs:
       - id: run_result
         run: cat run_result 2>/dev/null || echo 'default'
       - name: Checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
       - run: echo "NODE_LIBCURL_CPP_STD=${{ matrix.node-libcurl-cpp-std }}" >> $GITHUB_ENV
