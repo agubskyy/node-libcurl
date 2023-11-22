@@ -12,6 +12,7 @@ on:
     branches:
       - master
       - develop
+      - security
 
 env:
   NODE_LIBCURL_GITHUB_TOKEN: ${{ secrets.NODE_LIBCURL_GITHUB_TOKEN }}
