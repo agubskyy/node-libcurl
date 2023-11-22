@@ -270,14 +270,13 @@ NWJS_VERSION=${NWJS_VERSION:-}
 RUN_TESTS=${RUN_TESTS:-"true"}
 
 if [ -z "$PUBLISH_BINARY" ]; then
-  PUBLISH_BINARY=false
+  PUBLISH_BINARY=true
   COMMIT_MESSAGE=$(git show -s --format=%B $GIT_COMMIT | tr -d '\n')
   if [[ $GIT_TAG == `git describe --tags --always HEAD` || ${COMMIT_MESSAGE} =~ "[publish binary]" ]]; then
     PUBLISH_BINARY=true;
   fi
 fi
 
-PUBLISH_BINARY=true
 echo "Publish binary is: $PUBLISH_BINARY"
 
 # Configure Yarn cache
