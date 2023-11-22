@@ -95,8 +95,7 @@ jobs:
           ln -s /usr/local/bin/glibtoolize /usr/local/bin/libtoolize
       - if: runner.os == 'Linux'
         name: Install Needed packages on Linux
-        run: npm i -g yarn
-        run: echo 'All is ok' #sudo apt-get install -y cmake
+        run: npm i -g yarn && echo 'All is ok' #sudo apt-get install -y cmake
       - name: Output yarn cache dir
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
