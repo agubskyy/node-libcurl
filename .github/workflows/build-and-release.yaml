@@ -70,8 +70,8 @@ jobs:
             ${{ github.run_id }}-${{ github.job }}-
       - id: run_result
         run: cat run_result 2>/dev/null || echo 'default'
-      - name: Checkout
-        uses: actions/checkout@v4
+      # - name: Checkout
+      #   uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
