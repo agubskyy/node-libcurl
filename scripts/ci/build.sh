@@ -270,7 +270,7 @@ NWJS_VERSION=${NWJS_VERSION:-}
 RUN_TESTS=${RUN_TESTS:-"true"}
 
 if [ -z "$PUBLISH_BINARY" ]; then
-  PUBLISH_BINARY=true
+  PUBLISH_BINARY=false
   COMMIT_MESSAGE=$(git show -s --format=%B $GIT_COMMIT | tr -d '\n')
   if [[ $GIT_TAG == `git describe --tags --always HEAD` || ${COMMIT_MESSAGE} =~ "[publish binary]" ]]; then
     PUBLISH_BINARY=true;

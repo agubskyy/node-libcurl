@@ -339,7 +339,7 @@ const create = (defaultOptions: CurlyOptions = {}): CurlyFunction => {
           const entries = Object.entries(headersReq)
           for (const [headerKey, headerValue] of entries) {
             delete headersReq[headerKey]
-            headersReq[headerKey.toLowerCase()] = headerValue
+            headersReq[headerKey.toLowerCase()] = headerValue as any
           }
         }
       }
@@ -385,7 +385,7 @@ const create = (defaultOptions: CurlyOptions = {}): CurlyFunction => {
 
           // remove the metadata of the content-type, like charset
           // See https://tools.ietf.org/html/rfc7231#section-3.1.1.5
-          contentType = contentType.split(';')[0]
+          contentType = (contentType as string).split(';')[0]
 
           const responseBodyParsers = {
             ...curly.defaultResponseBodyParsers,
