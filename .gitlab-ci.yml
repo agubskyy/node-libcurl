@@ -8,6 +8,7 @@ publish:
   before_script:
     - npm i
     - npm ci --prefer-offline
+    - npm run build:dist
     - |
       {
         echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
