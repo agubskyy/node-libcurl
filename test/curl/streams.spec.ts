@@ -62,7 +62,7 @@ const getReadableStreamForBuffer = (
             this.push(null)
             wantsMore = false
           }
-        } catch (error) {
+        } catch (error: any) {
           stream.destroy(error)
         }
       }
