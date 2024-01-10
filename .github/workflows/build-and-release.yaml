@@ -33,7 +33,7 @@ jobs:
           - 14
         include:
           - os: centos-8
-            # libcurl-release: 7.79.1
+            libcurl-release: 7.88.1
             node: 18
             # node-libcurl-cpp-std: c++17
     env:
