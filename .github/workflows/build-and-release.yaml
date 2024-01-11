@@ -35,6 +35,7 @@ jobs:
           - os: centos-8
             libcurl-release: 7.88.1
             node: 18
+            zlib-version: 1.2.13
             # node-libcurl-cpp-std: c++17
     env:
       LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
