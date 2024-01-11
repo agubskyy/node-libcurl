@@ -72,7 +72,6 @@ function getReleaseByTag(tagName, cb) {
   log.info('', 'searching for release "%s"', tagName)
 
   repo.release('tags/' + tagName).info((error, data, headers) => {
-    log.info(JSON.stringify(data))
     if (error && error.statusCode && error.statusCode === 404) {
       log.info('', 'release for tag "%s" not found.', tagName)
     } else {

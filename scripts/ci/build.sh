@@ -277,7 +277,6 @@ if [ -z "$PUBLISH_BINARY" ]; then
   fi
 fi
 
-PUBLISH_BINARY=true
 echo "Publish binary is: $PUBLISH_BINARY"
 
 # Configure Yarn cache
