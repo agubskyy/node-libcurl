@@ -35,12 +35,13 @@ jobs:
           - os: centos-8
             libcurl-release: 7.88.1
             node: 18
-            zlib-version: 1.2.13
+            zlib-release: 1.2.13
             # node-libcurl-cpp-std: c++17
     env:
       LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
       LATEST_LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
       NODE_LIBCURL_CPP_STD: c++17
+      ZLIB_RELEASE: ${{ matrix.zlib-release }}
     steps:
       - id: timestamp
         run: echo "::set-output name=timestamp::$(timestamp +%s)"
