@@ -1,6 +1,6 @@
 {
   "name": "node-libcurl",
-  "version": "3.0.1-0",
+  "version": "3.0.2",
   "description": "The fastest http(s) client (and much more) for Node.js - Node.js bindings for libcurl",
   "keywords": [
     "node-curl",
@@ -10,9 +10,9 @@
     "axios",
     "request"
   ],
-  "homepage": "https://github.com/JCMais/node-libcurl",
+  "homepage": "https://github.com/agubskyy/node-libcurl",
   "bugs": {
-    "url": "https://github.com/JCMais/node-libcurl/issues"
+    "url": "https://github.com/agubskyy/node-libcurl/issues"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "module_path": "./lib/binding/",
     "remote_path": "./v{version}/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}-{libc}.tar.gz",
-    "host": "https://github.com/JCMais/node-libcurl/releases/download"
+    "host": "https://github.com/agubskyy/node-libcurl/releases/download"
   },
   "scripts": {
     "ae": "api-extractor run --local --verbose",
@@ -55,19 +55,6 @@
     "test:electron": "electron-mocha --require ts-node/register test/**/*.spec.ts --reporter spec --timeout 60000",
     "test:watch": "yarn test --watch --watch-files lib/*.ts lib/**/*.ts test/**/*.spec.ts",
     "preversion": "yarn lint && yarn clean:dist && yarn build:dist"
-  },
-  "lint-staged": {
-    "*.{cpp,cc,h}": [
-      "clang-format -style=file -i"
-    ],
-    "*.{ts,js}": [
-      "prettier",
-      "eslint --fix"
-    ],
-    "package.json": [
-      "sort-package-json",
-      "prettier"
-    ]
   },
   "dependencies": {
     "@mapbox/node-pre-gyp": "1.0.11",
@@ -121,9 +108,6 @@
     "typedoc": "0.25.4",
     "typedoc-plugin-nojekyll": "1.0.1",
     "typescript": "5.3.2"
-  },
-  "engines": {
-    "node": ">=16.14"
   },
   "np": {
     "cleanup": false
