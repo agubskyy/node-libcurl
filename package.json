@@ -1,5 +1,5 @@
 {
-  "name": "node-libcurl",
+  "name": "@soc-developers/node-libcurl",
   "version": "3.0.2",
   "description": "The fastest http(s) client (and much more) for Node.js - Node.js bindings for libcurl",
   "keywords": [
