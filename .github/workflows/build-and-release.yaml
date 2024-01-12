@@ -34,16 +34,13 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-18.04 # TODO(jonathan): bump this to a more recent version when we do a major version bump
+          - ubuntu-18.04
         libcurl-release:
           - 7.88.1
         node:
-          - 14
-        include:
-          - os: centos-8
-            libcurl-release: 7.88.1
-            node: 18
-            zlib-release: 1.2.13
+          - 18
+        zlib-release:
+          - 1.2.13
     env:
       LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
       LATEST_LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
