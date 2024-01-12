@@ -40,11 +40,11 @@ jobs:
           - 7.88.1
         node:
           - 14
-        include:
-          - os: centos-8
-            libcurl-release: 7.88.1
-            node: 18
-            zlib-release: 1.2.13
+        # include:
+        #   - os: centos-8
+        #     libcurl-release: 7.88.1
+        #     node: 18
+        #     zlib-release: 1.2.13
     env:
       LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
       LATEST_LIBCURL_RELEASE: ${{ matrix.libcurl-release }}
