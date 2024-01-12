@@ -121,7 +121,7 @@ fi
 ###################
 # Build cares
 ###################
-# c-ares is disabled at the moment due to this: https://github.com/JCMais/node-libcurl/issues/280
+# c-ares is disabled at the moment due to this: https://github.com/agubskyy/node-libcurl/issues/280
 # CARES_RELEASE=${CARES_RELEASE:-$(node -e "console.log(process.versions.ares || '1.16.1')")}
 # CARES_DEST_FOLDER=$PREFIX_DIR/deps/cares
 # echo "Building cares v$CARES_RELEASE"

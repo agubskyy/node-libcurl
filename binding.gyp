@@ -161,7 +161,7 @@
                   # because it doesn't start with a -. We need to remove one of the instances of
                   # -framework CoreFoundation or GYP will break our args.
                   # This seems to be required starting with xcode 12
-                  # original workaround from https://github.com/JCMais/node-libcurl/pull/312
+                  # original workaround from https://github.com/agubskyy/node-libcurl/pull/312
                   '-static',
                   '<!@(<(curl_config_bin) --static-libs | sed "s/-framework CoreFoundation//")',
                 ],

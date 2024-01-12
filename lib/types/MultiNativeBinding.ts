@@ -16,11 +16,11 @@ type SpecificOptions = 'PIPELINING'
 
 /**
  * `Multi` class that acts as an wrapper around the native libcurl multi handle.
- * > [C++ source code](https://github.com/JCMais/node-libcurl/blob/master/src/Multi.cc)
+ * > [C++ source code](https://github.com/agubskyy/node-libcurl/blob/master/src/Multi.cc)
  *
  * Using this class instead of just the {@link "Easy".Easy | Easy} allows one to run requests asynchronously.
  *
- * For usage see [examples/04-multi.js](https://github.com/JCMais/node-libcurl/blob/master/examples/04-multi.js)
+ * For usage see [examples/04-multi.js](https://github.com/agubskyy/node-libcurl/blob/master/examples/04-multi.js)
  *
  * The {@link "Curl".Curl | Curl} class uses one of this internally to provide asynchronous usage of the library.
  *

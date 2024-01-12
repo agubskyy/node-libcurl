@@ -55,7 +55,7 @@ export type CurlInfoNameSpecific = 'CERTINFO'
 
 /**
  * `Easy` class that acts as an wrapper around the libcurl connection handle.
- * > [C++ source code](https://github.com/JCMais/node-libcurl/blob/master/src/Easy.cc)
+ * > [C++ source code](https://github.com/agubskyy/node-libcurl/blob/master/src/Easy.cc)
  *
  * It can be used by itself, in a synchronous way:
  * ```javascript
@@ -533,7 +533,7 @@ export declare class EasyNativeBinding {
    *
    * One use case for this is when using the {@link send | `send`} and {@link recv | `recv`} methods
    *
-   * A full example is available at [examples/15-send-recv-methods.js](https://github.com/JCMais/node-libcurl/blob/master/examples/15-send-recv-methods.js)
+   * A full example is available at [examples/15-send-recv-methods.js](https://github.com/agubskyy/node-libcurl/blob/master/examples/15-send-recv-methods.js)
    *
    * Pass `null` to remove the current callback set.
    */

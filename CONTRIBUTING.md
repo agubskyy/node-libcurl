@@ -24,11 +24,11 @@ Before opening an issue try to search the existing ones for the same problem.
 
 Make sure to include on your issue the following information:
 
-* Node.js Version
-* yarn / npm version
-* Operational System (name and version)
-* Package version
-* Logs of the installation
+- Node.js Version
+- yarn / npm version
+- Operational System (name and version)
+- Package version
+- Logs of the installation
 
 ## Contributing with Code
 
@@ -39,37 +39,47 @@ The addon lib code is written in Typescript, while the addon itself is written i
 Folders [`./scripts`](./scripts) and [`./tools`](./tools) contain scripts in Javascript, those are used mostly during installation and on CI.
 
 ### C/C++
+
 #### Code Style
+
 C/C++ code is written following Google style guide (with some minor changes), and [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html) can/should be used to automatically format the code. There is already a `.clang-format` on the repository.
 
 #### Linting
+
 `cpplint` is used to lint C/C++ code
 
 ### Typescript / Javascript
+
 #### Code Style
+
 TS/JS code should be formatted using prettier
 
 #### Linting
+
 `ts-lint` is used to lint TS code, while JS code is using `eslint`.
 
 ### Setup
 
 If on Windows, first you will need to grab the deps:
+
 ```sh
 $ node scripts/update-deps.js
 ```
 
 Install the dependencies, this will also build the addon:
+
 ```sh
 $ yarn install
 ```
 
 If you made some change to the C++ code, you can just build the addon again:
+
 ```sh
 $ yarn pregyp build
 ```
 
 In case you need to rebuild:
+
 ```sh
 $ yarn pregyp rebuild
 ```
@@ -82,7 +92,7 @@ npm_config_curl_config_bin=~/deps/libcurl/build/x.y.z/bin/curl-config \
 yarn pregyp build --debug
 ```
 
-If you have any issues with the build process, please refer to a [readme build troubleshooting section](https://github.com/JCMais/node-libcurl#important-notes-on-prebuilt-binaries--direct-installation).
+If you have any issues with the build process, please refer to a [readme build troubleshooting section](https://github.com/agubskyy/node-libcurl#important-notes-on-prebuilt-binaries--direct-installation).
 
 ### Adding New libcurl Options
 
@@ -95,7 +105,7 @@ If you want to include a new libcurl option on the addon, those are the basic st
 3. If the option may use an `enum`, you should also create or update the existing enum. For example, libcurl 7.75.0 added [AWS Sig v4 authentication method](https://curl.se/bug/?i=5703), for that a new option and constant were added in libcurl, [`CURLOPT_AWS_SIGV4`](https://curl.se/libcurl/c/CURLOPT_AWS_SIGV4.html) and `CURLAUTH_AWS_SIGV4`. To add support for that option we:
    - Added the `CURLOPT_AWS_SIGV4` constant as the `AwsSigV4` member in the `CurlAuth` enum. To get the value we looked at the libcurl source code.
    - Added the `CURLOPT_AWS_SIGV4` as a string option.
-  [Full commit with the above changes is available here](https://github.com/JCMais/node-libcurl/commit/a38dd73db6f47a11197b7e1550111cc8ffd9ec2b).
+     [Full commit with the above changes is available here](https://github.com/agubskyy/node-libcurl/commit/a38dd73db6f47a11197b7e1550111cc8ffd9ec2b).
 4. Run `node ./scripts/build-constants.js`, this will generate an updated list of options on [`./lib/generated/`](./lib/generated), and also update the files [`./lib/Curl.ts`] and [`./lib/EasyNativeBinding.ts`] with overloads for the `setOpt` method. Make sure the options added are correct.
 5. If running the above adds extra options that you do not want to add / are not related to the options you are adding, please feel free to remove them manually from the generated output. We will try to improve this experience later, but for now you have to manually remove them.
 
@@ -121,24 +131,27 @@ npm_config_curl_config_bin=~/deps/libcurl/build/7.78.0/bin/curl-config \
 ```
 
 ### Debugging with lldb
+
 1. Install lldb
-On Debian based linux:
+   On Debian based linux:
+
 ```
 sudo apt-get install lldb
 ```
 
 2. Install Node.js lldb plugin:
+
 ```
 npm i -g llnode
 ```
 
 3. Run script that causes core dump
+
 ```
 llnode -- /path/to/bin/node --abort_on_uncaught_exception script.js
 ```
 
 4. Profit
-
 
 More information go to https://github.com/nodejs/llnode
 
@@ -155,27 +168,33 @@ We are using [`np`](https://github.com/sindresorhus/np) for releases.
 5. Publish
 
 So basically:
+
 ```bash
 git checkout master
 git merge develop
 ```
+
 And then:
+
 ```bash
 npx np [major|minor|patch]
 ```
 
 or if you are having trouble with `np`:
+
 ```bash
 yarn publish
 ```
 
 or even if you are having trouble with `yarn`:
+
 ```bash
 npm version [major|minor|patch]
 npm publish
 ```
 
 And finally
+
 ```bash
 git push --follow-tags
 git checkout develop
@@ -186,11 +205,13 @@ git push
 #### Prereleases
 
 For prereleases, use something like this from the `develop` branch:
+
 ```shell
 $ yarn np prerelease --any-branch --tag next
 ```
 
 If for some reason np fails to run with Yarn, you can use this command to skip cleaning up and use npm to publish:
+
 ```shell
 $ yarn np prerelease --no-yarn --no-cleanup --any-branch --tag next
 ```
@@ -198,6 +219,7 @@ $ yarn np prerelease --no-yarn --no-cleanup --any-branch --tag next
 #### Build Matrix
 
 We are using three CI providers:
+
 - CircleCI
 - GitHub Actions
 - AppVeyor
@@ -205,16 +227,19 @@ We are using three CI providers:
 Each CI provider is responsible for some builds:
 
 CircleCI:
+
 - Node.js (Alpine)
 - Electron (linux)
 - NW.js (linux)
 
 GitHub Actions:
+
 - Node.js (Linux, macOS)
 - Electron (macOS)
 - NW.js (macOS)
 
 AppVeyor:
+
 - Node.js (Win64, Win32)
 - Electron (Win64, Win32)
 
